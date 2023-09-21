@@ -1,0 +1,115 @@
+\documentclass[12pt,fleqn]{article}
+\usepackage{a4}
+\usepackage{graphicx}
+\usepackage{psfrag}
+\usepackage{amsmath}                     % \boldsymbol{#1}
+\usepackage{amssymb}
+\usepackage{hangcaption}
+\usepackage{pstricks}
+\usepackage{pst-node}
+\usepackage{fancyheadings}
+\usepackage[subfigure]{tocloft}
+\usepackage{tabularx}
+\usepackage{subfigure}
+\usepackage{matlab-prettifier}
+\newcommand{\mkf}[1]{\mbox{\boldmath $#1$}}
+%-----Textbreite---------------------------------
+\textwidth 16cm
+%-----Zeilenabstand-------------------------------
+\renewcommand{\baselinestretch}{1.1}     % 1,1-zeilig
+\renewcommand{\cftdot}{}
+%------Absatzlaenge-------------------------------
+\setlength{\parskip}{1.5ex plus0.5ex minus0.5ex}
+
+%-----Einruecken unterbinden----------------------
+\setlength{\parindent}{0em}
+
+%-----Richtiger Abstand fur Einheiten-------------
+\def\Unit{\hspace{0.25em}}
+
+%-----Definition der Kopfzeile--------------------
+\pagestyle{fancyplain}
+\renewcommand{\sectionmark}[1]{\markboth{Chapter~\thesection.~~#1}{#1}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+\rhead[\fancyplain{}{\leftmark}]%
+{\fancyplain{\thepage}{\thepage}} \cfoot{} \plainheadrulewidth
+0.4pt
+%% sonst: Overfull \vbox-Warnung wegen fancyheadings-pacakage
+%%  idea of: nic@minster.york.ac.uk (Nick Cropper)
+\makeatletter
+\ifcase \@ptsize \relax % 10pt
+  \addtolength{\headheight}{1\p@}
+\or % 11pt
+  \addtolength{\headheight}{2\p@}
+\or % 12pt
+  \addtolength{\headheight}{3\p@}
+\fi \makeatother
+
+%-----Gleichungs-/Bild-/Tabellennumerierung nach \section's
+\makeatletter
+\renewcommand\theequation{\thesection.\arabic{equation}}
+\renewcommand\thefigure{\thesection.\arabic{figure}}
+\renewcommand\thetable{\thesection.\arabic{table}}
+\@addtoreset{equation}{section} \@addtoreset{figure}{section}
+\@addtoreset{table}{section} \makeatother
+
+%-----N\"{u}tzliche Abk\"{u}rzungen----------------------
+\newcommand{\mr}{\mathrm}
+\newcommand{\bs}[1]{\mbox{$\boldsymbol{#1}$}}
+\newcommand{\degree}[1]{\mbox{$#1^\circ$}}
+
+%\renewcommand{\figurename}{Bild}
+
+%------Stil des Literaturverzeichnisses-----------------------
+\bibliographystyle{alphadin}
+
+%-----Aufzaehlunstiefe im Literaturverzeichnis---------------
+\setcounter{tocdepth}{3}
+\sloppy
+\begin{document}
+\begin{titlepage}
+  \begin{center}
+    \vspace*{-2.5cm}
+    \large{University of Duisburg-Essen}\\
+   \large{Chair of Dynamics and Control}\\
+    \large{Univ.-Prof.~Dr.-Ing.\ Dirk S\"offker}\\
+    ------------------------------------------------------------------------------------------------\\[3.7cm]
+    \LARGE{\textbf{Project work }}\\[1.5cm]
+    \Large{\textbf{Image Classification - MNIST \\
+    Regression - CFRP NASA }}\\[0.6cm]
+    %\large{by}\\[0.6cm]
+    \vspace{1.2cm}
+    \large{\textbf{Mohamed Ibrahim\\
+    Matrikelnummer: 315605}}\\[1.5cm]
+    \vspace*{3cm}
+    \large{Advisor}\\[0.5cm]
+    \large{Jonathan Liebeton, M.Sc.}\\
+    \large{Univ.-Prof.\ Dr.-Ing.\ Dirk S\"offker }\\[0.5cm]\vfill
+    \large{September 2023}\\[0.5cm]
+    ------------------------------------------------------------------------------------------------\\[1.5cm]
+  \end{center}
+\end{titlepage}
+%
+\pagenumbering{gobble}% Remove page numbers (and reset to 1)
+\input{Versicherung_an_Eides_Statt}
+\clearpage
+\input{Urheberrechtsvereinbarung}
+\clearpage%
+\pagenumbering{Roman}
+\tableofcontents
+\clearpage
+\listoffigures
+\listoftables
+\clearpage
+\pagenumbering{arabic}
+  \input{einleitung}
+  \clearpage
+  \input{DataSet1}
+  \clearpage
+  \input{DataSet2}
+  \clearpage
+%----  Literaturverzeichnis  ----------------------------------------
+\markright{References}                               % Erzeugt Kopfzeile
+\addcontentsline{toc}{section}{References}            % Literaturverzeichnis ins Inhaltsverzeichnis
+\bibliography{Bsp_Literatur}                         % BIBTeX
+\end{document}

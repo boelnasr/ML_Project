@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: TermPaper.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: alphadin.bst
+Reallocating 'name_of_file' (item size: 1) to 14 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Database file #1: Bsp_Literatur.bib
+You've used 3 entries,
+            4793 wiz_defined-function locations,
+            913 strings with 6835 characters,
+and the built_in function-call counts, 1895 in all, are:
+= -- 174
+> -- 56
+< -- 42
++ -- 47
+- -- 17
+* -- 131
+:= -- 339
+add.period$ -- 4
+call.type$ -- 3
+change.case$ -- 14
+chr.to.int$ -- 3
+cite$ -- 3
+duplicate$ -- 62
+empty$ -- 157
+format.name$ -- 37
+if$ -- 378
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 11
+newline$ -- 26
+num.names$ -- 10
+pop$ -- 24
+preamble$ -- 1
+purify$ -- 20
+quote$ -- 0
+skip$ -- 98
+stack$ -- 0
+substring$ -- 112
+swap$ -- 15
+text.length$ -- 12
+text.prefix$ -- 1
+top$ -- 0
+type$ -- 27
+warning$ -- 0
+while$ -- 20
+width$ -- 6
+write$ -- 44
