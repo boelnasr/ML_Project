@@ -13,9 +13,9 @@ This project aims to predict the Remaining Useful Life (RUL) and potential failu
 - To predict the Remaining Useful Life (RUL) of the machinery
 ## Files in this Project:
 
-### 1. **CFRP_NASA.m**:  
+### 1. **CFRP_Data.m**:  
    - **Purpose**: Main script responsible for data extraction.
-   - **Functionality**: Extracts relevant data from the individual layup files (`layup 1.m`, `layup 2.m`, `layup 3.m`) to be used for regression analysis.
+   - **Functionality**: Extracts relevant data from the individual layup files (`layup 1.mat`, `layup 2.mat`, `layup 3.mat`) to be used for regression analysis.
 
 ### 2. **layup 1.m**, **layup 2.m**, **layup 3.m**:
    - **Purpose**: Individual scripts for each layup that perform regression.
