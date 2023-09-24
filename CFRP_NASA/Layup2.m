@@ -77,8 +77,7 @@ net.divideParam.testRatio = testFraction;
 yPred = net(XTest');
 
 %% Evaluate the Model
-mseError = mean((yPred' - YTest).^2);
-fprintf('Mean Square Error on Test Set: %f\n', mseError);
+evaluateNNModel(net, XTrain_norm, YTrain_norm, XTest_norm, YTest_norm, threshold);
 toc
 %% Scatter Plot for YPred(:, 1) against YTest(:, 2)
 yPred=yPred';
@@ -96,13 +95,6 @@ xlabel('Predicted Cycles');
 ylabel('Predicted Load');
 title('Scatter Plot of Predicted Load vs Actual Cycles');
 grid on;
-%%
-%% Calculate RUL
-initialLifeCycles = 1000; % Assumption
-predictedCycles = yPred(:, 2); % Extracting the predicted Cycles from yPred
-
-% Calculate RUL
-RUL = (initialLifeCycles - predictedCycles);
 
 %% Calculate RUL
 initialLifeCycles = 1000; % Assumption
@@ -117,15 +109,12 @@ RUL = (initialLifeCycles - predictedCycles);
 % Set up fittype and options.
 ft = fittype( 'exp1' );
 opts = fitoptions( 'Method', 'NonlinearLeastSquares' );
-opts.DiffMinChange = 1e-06;
 opts.Display = 'Off';
 opts.MaxFunEvals = 1;
-opts.MaxIter = 1000;
 opts.Normalize = 'on';
-opts.Robust = 'LAR';
-opts.StartPoint = [1.50310867899729 -0.138726006084252];
-opts.TolFun = 0.01;
-opts.TolX = 0.01;
+opts.Robust = 'Bisquare';
+opts.StartPoint = [2.10585254542642 -0.911348086153246];
+
 
 % Fit model to data.
 [fitresult, gof] = fit( xData, yData, ft, opts );

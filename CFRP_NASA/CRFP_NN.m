@@ -1,3 +1,15 @@
+% Main MATLAB script for Predictive Maintenance using Neural Networks
+% Author: Mohamed Ibrahim
+% Date: 2023-09-25 
+%
+% This script performs the following:
+% 1. Loads the data table
+% 2. Prepares the training and testing sets
+% 3. Normalizes the features and labels
+% 4. Configures and trains a neural network
+% 5. Evaluates the neural network on the test set
+% 6. Plots relevant results
+%% Load the data
 clc; clear all; close all;
 
 
@@ -191,8 +203,7 @@ net.divideParam.testRatio = testFraction;
 yPred = net(XTest');
 
 %% Evaluate the Model
-mseError = mean((yPred' - YTest).^2);
-fprintf('Mean Square Error on Test Set: %f\n', mseError);
+evaluateNNModel(net, XTrain_norm, YTrain_norm, XTest_norm, YTest_norm, threshold);
 toc
 %% Scatter Plot for YPred(:, 1) against YTest(:, 2)
 yPred=yPred';

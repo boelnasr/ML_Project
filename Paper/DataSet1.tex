@@ -87,7 +87,8 @@ Training options are set up to use the ADAM optimizer, with various hyperparamet
 
 \begin{lstlisting}[language=Matlab]
 %% Train the CNN
-[net, info] = trainNetwork(trainImages, categorical(trainLabels), lgraph, options);
+[net, info] = trainNetwork(trainImages, categorical(trainLabels),..
+lgraph, options);
 % Evaluate the trained network
 pred = classify(net, testImages);
 accuracy = sum(pred == categorical(testLabels)) / numel(testLabels);
@@ -133,7 +134,7 @@ numComponents = find(explainedVariance > 0.95, 1);
 
 \subsubsection{Data Projection}
 
-The training data is projected into the PCA space. The test data is centered using the mean of the training data and then projected:
+The training data is projected into the PCA space. The test data is centred using the mean of the training data and then projected:
 \begin{lstlisting}[language=Matlab]
 trainDataPCA = gpuArray(score(:, 1:numComponents));
 meanTrain = mean(trainData, 1);
@@ -190,7 +191,8 @@ for i = 1:nClasses
     
     precision(i) = TP / (TP + FP);
     recall(i) = TP / (TP + FN);
-    f1Score(i) = 2 * (precision(i) * recall(i)) / (precision(i) + recall(i));
+    f1Score(i) = 2 * (precision(i) * recall(i))...
+    / (precision(i) + recall(i));
 end
 \end{lstlisting}
 \subsection{Conclusion}
